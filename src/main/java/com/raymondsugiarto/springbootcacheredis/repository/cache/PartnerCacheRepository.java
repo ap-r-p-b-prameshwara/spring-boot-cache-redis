@@ -1,6 +1,6 @@
 package com.raymondsugiarto.springbootcacheredis.repository.cache;
 
-import com.raymondsugiarto.springbootcacheredis.entity.cache.Employee;
+import com.raymondsugiarto.springbootcacheredis.entity.cache.Partner;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * @author r.pb on 02/03/23
  */
 @Repository
-public interface EmployeeCacheRepository extends JpaRepository<Employee, String> {
+public interface PartnerCacheRepository extends JpaRepository<Partner, String> {
 }
