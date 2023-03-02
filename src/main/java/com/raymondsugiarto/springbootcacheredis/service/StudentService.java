@@ -1,7 +1,8 @@
-package com.raymondsugiarto.springbootcacheredis;
+package com.raymondsugiarto.springbootcacheredis.service;
 
+import com.raymondsugiarto.springbootcacheredis.entity.cache.Student;
+import com.raymondsugiarto.springbootcacheredis.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

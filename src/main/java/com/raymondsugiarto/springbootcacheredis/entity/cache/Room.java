@@ -1,4 +1,4 @@
-package com.raymondsugiarto.springbootcacheredis;
+package com.raymondsugiarto.springbootcacheredis.entity.cache;
 
 import lombok.*;
 

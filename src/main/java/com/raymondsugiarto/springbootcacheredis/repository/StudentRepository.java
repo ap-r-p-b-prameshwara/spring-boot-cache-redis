@@ -1,5 +1,6 @@
-package com.raymondsugiarto.springbootcacheredis;
+package com.raymondsugiarto.springbootcacheredis.repository;
 
+import com.raymondsugiarto.springbootcacheredis.entity.cache.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

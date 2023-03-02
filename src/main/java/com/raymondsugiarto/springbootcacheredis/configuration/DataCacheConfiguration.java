@@ -1,5 +1,6 @@
-package com.raymondsugiarto.springbootcacheredis;
+package com.raymondsugiarto.springbootcacheredis.configuration;
 
+import ma.glasnost.orika.MapperFacade;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

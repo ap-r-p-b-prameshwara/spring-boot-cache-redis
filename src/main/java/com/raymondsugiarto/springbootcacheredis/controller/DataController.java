@@ -1,7 +1,11 @@
-package com.raymondsugiarto.springbootcacheredis;
+package com.raymondsugiarto.springbootcacheredis.controller;
 
+import com.raymondsugiarto.springbootcacheredis.entity.cache.Room;
+import com.raymondsugiarto.springbootcacheredis.entity.cache.Student;
+import com.raymondsugiarto.springbootcacheredis.repository.StudentRepository;
+import com.raymondsugiarto.springbootcacheredis.service.RoomService;
+import com.raymondsugiarto.springbootcacheredis.service.StudentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
