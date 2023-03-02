@@ -8,9 +8,13 @@ import com.raymondsugiarto.springbootcacheredis.entity.cache.Employee;
 import com.raymondsugiarto.springbootcacheredis.entity.cache.Partner;
 import com.raymondsugiarto.springbootcacheredis.repository.cache.EmployeeCacheRepository;
 import com.raymondsugiarto.springbootcacheredis.repository.cache.PartnerCacheRepository;
+import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @author raymond on 26/02/23
@@ -40,10 +44,10 @@ public class DemoService {
     return employeeDto;
   }
 
-  public EmployeeDto getEmployee(String npk) throws ChangeSetPersister.NotFoundException {
+  public EmployeeDto getEmployee(String npk) throws NotFoundException {
     Employee employeeRequest = Employee.builder().build();
     employeeRequest.setKey(npk);
-    Employee employeeCache = employeeCacheRepository.findById(employeeRequest.getKey()).orElseThrow(ChangeSetPersister.NotFoundException::new);
+    Employee employeeCache = employeeCacheRepository.findById(employeeRequest.getKey()).orElseThrow(()-> new NotFoundException(""));
 
     EmployeeDto employeeDto = EmployeeDto
             .builder()
@@ -52,6 +56,15 @@ public class DemoService {
             .npk(npk)
             .build();
     return employeeDto;
+  }
+
+  public List<Employee> getEmployees() throws NotFoundException {
+    var employees = employeeCacheRepository.findAll();
+
+    if(Objects.isNull(employees)){
+      throw new NotFoundException("");
+    }
+    return employees;
   }
 
   public PartnerDto createPartner(PartnerRequestDto partnerRequestDto){
@@ -73,10 +86,10 @@ public class DemoService {
     return partnerDto;
   }
 
-  public PartnerDto getPartner(String code) throws ChangeSetPersister.NotFoundException {
+  public PartnerDto getPartner(String code) throws NotFoundException {
     Partner partnerRequest = Partner.builder().build();
     partnerRequest.setKey(code);
-    Partner partnerCache = partnerCacheRepository.findById(partnerRequest.getKey()).orElseThrow(ChangeSetPersister.NotFoundException::new);
+    Partner partnerCache = partnerCacheRepository.findById(partnerRequest.getKey()).orElseThrow(()-> new NotFoundException(""));
 
     PartnerDto partnerDto = PartnerDto
             .builder()
